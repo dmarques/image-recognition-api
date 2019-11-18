@@ -72,6 +72,9 @@ $ pip3 install Pillow
 
 Download the ResNet Model file which was trained on the **[ImageNet-1000](https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels.h5)** dataset and copy the file to your python project folder
 
+In this case, put the file into folder **/aimodel**
+`../aimodel/resnet50_weights_tf_dim_ordering_tf_kernels.h5`
+
 ## Running the application
 
 Run Application using Python 3
@@ -79,4 +82,21 @@ Run Application using Python 3
 ```shell
 $ cd app
 $ python3 app.py
+```
+
+## Usage
+
+_Request:_
+
+```curl
+curl -X POST http://localhost:8080/process -H 'Content-Type: multipart/form-data' -F file=@/Users/username/filename.jpg
+```
+
+_Response:_
+
+```json
+{
+  "object": "trailer_truck",
+  "probability": 99.8289167881012
+}
 ```
